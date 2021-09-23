@@ -1,0 +1,26 @@
+﻿
+Question -: What is Threading ?
+Answer - : Paralle code Executions
+
+Note -: To perform Threading use Following namespace 
+	Using System.Threading;
+
+
+								Types of Threading 
+
+1> Foreground Thread -:
+		- Thread will keep running until they finish their task even if main threading is exist.
+2> Background Thread -:
+
+
+
+
+
+
+
+
+
+
+
+
+

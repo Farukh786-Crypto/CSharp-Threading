@@ -1,0 +1,101 @@
+﻿
+Question -: What is Threading ?
+Answer - : Paralle code Executions
+
+Note -: To perform Threading use Following namespace 
+	Using System.Threading;
+
+
+								Types of Threading 
+
+1> Foreground Thread -:
+		- Thread will keep running until they finish their task even if main threading is exist.
+		- Foreground threads exist/stays even if main app exist
+			Example -: TypesofThreads2 project
+2> Background Thread -:
+		- if main app or thread exist is exist all other thread dies off .
+
+		Example -: TypesofThreads2 project
+
+			 obj1.IsBackground = true; // obj1 is Thread object
+
+
+Question : How can we make a object thread safe using LOCK in multithreading ?
+Answer -: there are three Thread Synchronization tachnique .
+	1>LOCK-: only one thread is execute that code, when thread are in process
+	2>MUTEX -: use when thread coming from external environment
+	3>SEMAPHORE -:
+
+
+Question : AutoResetEvent vs ManualResetEvent
+Answer : they are Signaling methodology
+
+
+
+Questions : What is Thread Pooling?
+Answer -:
+		Steps to create Single Thread
+		1. Request --> 2.Thread Object --> 3. Resource Allocated (memory etc.)
+														'
+														'
+														'
+		5. Garbage Collections		<---	4. Task Executed  ----->
+														'		  |
+														'		  |
+														'         |
+												Thread Pool   ---- 
+												
+** Thread Pooling Adantages:
+1>it is create when same object require lots of time so we dont need to above steps again and again
+ i.e creation ob object allocate resource is happen only onces and if we require it coming from pool
+
+2> limit to the Thread pool so performance gain
+
+
+Question : How to debug thread ?
+Answer :
+	Here's what I did:
+1>Set a conditional break point that I knew would only hit on the thread that I was looking for.
+
+2>Once the breakpoint hits and you are in the thread you want, in the Visual Studio Threads window 
+(while debugging, Debug -> Windows -> Threads), Ctrl + A (to select all threads), and then Ctrl + click 
+the thread you are currently on. You should have all threads except the one you want to debug selected.
+
+3>Right-click, and choose "Freeze".
+Now, Visual Studio will only step through the thawed thread. It seems to be much slower when doing this,
+presumably because it has to loop through all of the frozen threads, but it brought some sanity to my multi-threaded debugging.
+
+
+
+								*** Task Parallel Library(TPL) ****
+
+Questions : What is Time slicing ?
+Answer : Time Slicing means context switching .
+	Example if you have 2 thread thread1 and thread2 running and we have single processor so processor distributed time to the
+	each thread i.e thred1 start thread 2 is not started (halt) after sometime it switch to thread 2 then thread1 is halted  
+	and the process is go on this is called process affinity
+		
+		therefore in Threading multithreading is not happening time slicing is happening context switch happen
+	but in Task , all processor equally share thread so actual multithreading happen
+			
+		
+
+	Note : 
+	-use namespace using System.Threading.Task
+	-TPL encapsulated multi-core execution
+	-Task usages Thread - pooling internally
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
